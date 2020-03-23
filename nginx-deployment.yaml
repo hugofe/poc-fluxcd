@@ -5,6 +5,9 @@ metadata:
   namespace: default
   labels:
     app: nginx
+  annotations:
+     fluxcd.io/automated: "true"
+     fluxcd.io/tag.podinfod: glob:1.4.*
 spec:
   replicas: 1
   selector:
