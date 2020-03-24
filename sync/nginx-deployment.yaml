@@ -2,12 +2,13 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: nginx-deployment
-  namespace: default
+  namespace: demo
   labels:
     app: nginx
   annotations:
-     fluxcd.io/automated: "true"
-     fluxcd.io/tag.podinfod: glob:1.4.*
+    fluxcd.io/automated: "true"
+    fluxcd.io/tag.init: regex:^3.10.*
+    fluxcd.io/tag.podinfod: semver:~3.1
 spec:
   replicas: 1
   selector:
